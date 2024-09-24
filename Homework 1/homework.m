@@ -131,6 +131,7 @@ error1 = abs(x_star - xiter1);
 error2 = abs(x_star - xiter2);
 error3 = abs(x_star - xiter3);
 % plot the graph
+figure(4)
 semilogy(1:length(error1),error1); hold on
 semilogy(1:length(error2), error2); hold on
 semilogy(1:length(error3), error3); hold off
@@ -154,7 +155,7 @@ y1 = x;
 y2 = 2 * x;
 y3 = (sqrt(5) + 1)/2 * x;
 
-
+figure(5)
 scatter(error1_1,error1_2, "red"); hold on;
 scatter(error2_1, error2_2, "blue"); hold on;
 scatter(error3_1, error3_2, "green"); hold on;
