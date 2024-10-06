@@ -1,0 +1,10 @@
+addpath Assignment\Assignment2\functions\
+
+A = [1,2,3;
+    4,5,0;
+    6,7,8];
+b = [3;
+    2;
+    1];
+
+[L,U,y] = lu_nopivot(A,b);
