@@ -1,0 +1,43 @@
+% parameters
+ans = 2 * pi * besselj(0,1); % actual result
+N = 40; % maximum number of nodes
+a = -pi;
+b = pi;
+f = @(x) exp(cos(x));
+
+err = zeros(1,N);
+% left hand rule approximation
+for n = 3:N
+    h = (b-a)/n;
+    x = a +(0:n-1) * h;
+    res = h * sum(f(x));
+
+    err(n-2) = abs(res - ans);
+end
+semilogy(1:N,err);
+%%
+
+%%
+% Exact value of the integral
+exact_value = 2 * pi * besselj(0, 1); % Known result of the integral
+a = -pi;                              % Lower limit
+b = pi;                               % Upper limit
+n_values = 2:40;                      % Range of number of intervals (nodes)
+errors = zeros(size(n_values));       % Array to store errors
+
+% Left-hand rule approximation
+for idx = 1:length(n_values)
+    n = n_values(idx);                % Number of intervals
+    h = (b - a) / n;                  % Step size
+    x = a + (0:n-1) * h;              % Left endpoints
+    approx = h * sum(exp(cos(x)));    % Approximation using Left Riemann Sum
+    errors(idx) = abs(approx - exact_value); % Compute the absolute error
+end
+
+% Plot the error
+figure;
+semilogy(n_values, errors, '-o');     % Log-scale plot with markers
+xlabel('Number of Nodes (n)');        % X-axis label
+ylabel('Error');                      % Y-axis label
+title('Error in Left-Endpoint Rule'); % Title
+grid on;                              % Enable grid

@@ -1,0 +1,22 @@
+addpath functions\
+% parmeters
+n = 3; % number of nodes
+a = 0;
+b = 1;
+
+% calculate the nodes and weights
+[x,w] = lgwt(n,a,b);
+
+% get
+approx = zeros(1,10);
+error = zeros(1,10);
+
+
+for k = 0:10
+    GL_approx = 0;
+    f = @(x)x^k;
+    for i = 1:length(x)
+        GL_approx = GL_approx + f(x(i))*w(i);
+    end
+    approx(k) = GL_approx;
+end

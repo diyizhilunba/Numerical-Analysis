@@ -1,0 +1,7 @@
+addpath functions\
+% parameters
+n = 6;
+p = 4;
+
+% find node grid
+NodeGrid = ad

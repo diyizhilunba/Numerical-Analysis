@@ -1,0 +1,18 @@
+function approx = adapcheb_interp(n,p,node_val,x)
+%ADAPCHEB_INTERP Summary of this function goes here
+%   Detailed explanation goes here
+% Input:
+% n,p: Number of grids to get the chebyshev nodes on [0,1]
+% node_val: value of the nodes, a p x n matrix 
+% x: the point to valuate
+% Output:
+% approx: approximate value by chebyshev interpolation
+
+
+k = floo(log2(x)) + n; % find the panel x locates
+cheb_nodes = NodeGrid(:, k);
+cheb_val = node_val(:,k);
+
+
+end
+
